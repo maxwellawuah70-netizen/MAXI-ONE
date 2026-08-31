@@ -1,124 +1,377 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-  <title>MAXI ONE PASCO</title>
+<title>MAXI ONE PASCO</title>
 
-  <style>
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
+<style>
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    font-family: Georgia, "Times New Roman", serif;
+    background: #f4f7fb;
+    color: #173d70;
+}
+
+.header {
+    background: #173d70;
+    color: white;
+    text-align: center;
+    padding: 65px 15px;
+}
+
+.header h1 {
+    margin: 0;
+    font-size: 48px;
+    font-weight: bold;
+}
+
+.container {
+    max-width: 900px;
+    margin: 30px auto;
+    padding: 0 20px;
+}
+
+.card {
+    background: white;
+    border-radius: 24px;
+    padding: 45px 35px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.08);
+}
+
+h2 {
+    text-align: center;
+    font-size: 45px;
+    margin: 0 0 50px;
+}
+
+button {
+    width: 100%;
+    border: none;
+    border-radius: 12px;
+    background: #2f69c5;
+    color: white;
+    padding: 24px 15px;
+    margin-bottom: 25px;
+    font-size: 30px;
+    cursor: pointer;
+}
+
+button:hover {
+    background: #214f98;
+}
+
+.back {
+    margin-top: 5px;
+}
+
+.footer {
+    text-align: center;
+    margin: 45px 15px;
+}
+
+.footer h3 {
+    margin: 0;
+    font-size: 25px;
+}
+
+.footer p {
+    font-size: 22px;
+    margin-top: 8px;
+}
+
+.course-search {
+    width: 100%;
+    padding: 20px;
+    border: 2px solid #ccc;
+    border-radius: 10px;
+    font-size: 20px;
+    margin-bottom: 30px;
+}
+
+.course {
+    background: #eef2f8;
+    border-radius: 14px;
+    padding: 25px 22px;
+    margin-bottom: 18px;
+}
+
+.course h3 {
+    margin: 0 0 10px;
+    font-size: 27px;
+}
+
+.course a {
+    color: #1717d9;
+    font-size: 22px;
+    text-decoration: underline;
+}
+
+.page {
+    display: none;
+}
+
+.page.active {
+    display: block;
+}
+
+@media (max-width: 600px) {
+
+    .header {
+        padding: 55px 10px;
     }
 
-    body {
-      font-family: Arial, sans-serif;
-      background: #0b0f15;
-      color: white;
-      min-height: 100vh;
+    .header h1 {
+        font-size: 38px;
     }
 
-    header {
-      text-align: center;
-      padding: 60px 20px 50px;
-      background: #171b23;
+    .card {
+        padding: 35px 20px;
     }
 
-    header h1 {
-      font-size: 42px;
-      font-weight: bold;
-      margin-bottom: 18px;
+    h2 {
+        font-size: 36px;
+        margin-bottom: 40px;
     }
 
-    header p {
-      font-size: 21px;
-      color: #9da3ae;
+    button {
+        font-size: 25px;
+        padding: 22px 10px;
     }
 
-    .container {
-      max-width: 850px;
-      margin: auto;
-      padding: 50px 25px;
+    .course h3 {
+        font-size: 23px;
     }
-
-    .button {
-      display: block;
-      text-decoration: none;
-      color: white;
-      background: #171b23;
-      border: 2px solid #303641;
-      border-radius: 22px;
-      padding: 30px 20px;
-      margin-bottom: 28px;
-      text-align: center;
-      font-size: 25px;
-      transition: 0.2s;
-    }
-
-    .button:hover {
-      background: #202631;
-      transform: translateY(-2px);
-    }
-
-    .emoji {
-      margin-right: 10px;
-    }
-
-    footer {
-      text-align: center;
-      color: #777f8c;
-      padding: 30px 20px;
-      font-size: 15px;
-    }
-
-    @media (max-width: 600px) {
-      header h1 {
-        font-size: 32px;
-      }
-
-      header p {
-        font-size: 18px;
-      }
-
-      .button {
-        font-size: 21px;
-        padding: 27px 15px;
-      }
-    }
-  </style>
+}
+</style>
 </head>
 
 <body>
 
-  <header>
-    <h1>📚 MAXI ONE PASCO</h1>
-    <p>Past Questions &amp; Study Materials</p>
-  </header>
+<div class="header">
+    <h1>MAXI ONE PASCO</h1>
+</div>
 
-  <div class="container">
 
-    <a class="button" href="#">
-      <span class="emoji">📖</span>
-      Ghanaian Language &amp; Culture
-    </a>
+<!-- PROGRAMME PAGE -->
+<div id="programme" class="page active">
 
-    <a class="button" href="#">
-      <span class="emoji">📝</span>
-      Written Techniques
-    </a>
+    <div class="container">
+        <div class="card">
 
-    <a class="button" href="#">
-      <span class="emoji">📚</span>
-      Past Questions
-    </a>
+            <h2>Select Programme</h2>
 
-  </div>
+            <button onclick="showPage('level')">
+                Early Childhood Education
+            </button>
 
-  <footer>
-    © 2026 MAXI ONE PASCO
-  </footer>
+            <button onclick="showPage('level')">
+                Primary Education
+            </button>
+
+            <button onclick="showPage('level')">
+                JHS Education
+            </button>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- LEVEL PAGE -->
+<div id="level" class="page">
+
+    <div class="container">
+        <div class="card">
+
+            <h2>Select Level</h2>
+
+            <button onclick="showPage('semester')">
+                Level 100
+            </button>
+
+            <button onclick="showPage('semester')">
+                Level 200
+            </button>
+
+            <button onclick="showPage('semester')">
+                Level 300
+            </button>
+
+            <button onclick="showPage('semester')">
+                Level 400
+            </button>
+
+            <button class="back" onclick="showPage('programme')">
+                Back
+            </button>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- SEMESTER PAGE -->
+<div id="semester" class="page">
+
+    <div class="container">
+        <div class="card">
+
+            <h2>Select Semester</h2>
+
+            <button onclick="showPage('courses')">
+                Semester 1
+            </button>
+
+            <button onclick="showPage('courses')">
+                Semester 2
+            </button>
+
+            <button onclick="showPage('level')">
+                Back
+            </button>
+
+        </div>
+    </div>
+
+</div>
+
+
+<!-- COURSES PAGE -->
+<div id="courses" class="page">
+
+    <div class="container">
+
+        <div class="card">
+
+            <h2>Courses</h2>
+
+            <input
+                type="text"
+                id="search"
+                class="course-search"
+                placeholder="Search course..."
+                onkeyup="searchCourses()"
+            >
+
+            <div id="courseList">
+
+                <div class="course">
+                    <h3>African Traditional Religion</h3>
+                    <a href="#" onclick="return false;">
+                        View / Download
+                    </a>
+                </div>
+
+                <div class="course">
+                    <h3>English Language Studies I</h3>
+                    <a href="#" onclick="return false;">
+                        View / Download
+                    </a>
+                </div>
+
+                <div class="course">
+                    <h3>Geometry & Trigonometry</h3>
+                    <a href="#" onclick="return false;">
+                        View / Download
+                    </a>
+                </div>
+
+                <div class="course">
+                    <h3>Ghanaian Language & Culture: Cultural Studies</h3>
+                    <a href="#" onclick="return false;">
+                        View / Download
+                    </a>
+                </div>
+
+                <div class="course">
+                    <h3>Oral Literature of Ghanaian Language</h3>
+                    <a href="#" onclick="return false;">
+                        View / Download
+                    </a>
+                </div>
+
+                <div class="course">
+                    <h3>Written Literature of Ghanaian Language</h3>
+                    <a href="#" onclick="return false;">
+                        View / Download
+                    </a>
+                </div>
+
+                <div class="course">
+                    <h3>HIV/AIDS</h3>
+                    <a href="#" onclick="return false;">
+                        View / Download
+                    </a>
+                </div>
+
+            </div>
+
+            <button onclick="showPage('semester')">
+                Back
+            </button>
+
+        </div>
+    </div>
+
+</div>
+
+
+<div class="footer">
+    <h3>THE MATHS WHISPERER</h3>
+    <p>Maths made easy, success made certain</p>
+</div>
+
+
+<script>
+
+function showPage(pageName) {
+
+    let pages = document.querySelectorAll(".page");
+
+    pages.forEach(function(page) {
+        page.classList.remove("active");
+    });
+
+    document.getElementById(pageName).classList.add("active");
+
+    window.scrollTo(0, 0);
+}
+
+
+function searchCourses() {
+
+    let input = document
+        .getElementById("search")
+        .value
+        .toLowerCase();
+
+    let courses = document.querySelectorAll(".course");
+
+    courses.forEach(function(course) {
+
+        let name = course
+            .querySelector("h3")
+            .textContent
+            .toLowerCase();
+
+        if (name.includes(input)) {
+            course.style.display = "block";
+        } else {
+            course.style.display = "none";
+        }
+
+    });
+}
+
+</script>
 
 </body>
 </html>
